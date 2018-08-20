@@ -1,0 +1,25 @@
+﻿<Window x:Class="AccountHelper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountHelper"
+        xmlns:controls="clr-namespace:CustomPresentationControls;assembly=CustomPresentationControls"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="300"
+        Width="450"
+        ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:MainWindowModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type controls:AuthenticationViewModel}">
+            <controls:AuthenticationView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:MainViewModel}">
+            <local:MainView/>
+        </DataTemplate>
+    </Window.Resources>
+    <ContentControl Content="{Binding CurrentViewModel}"/>
+</Window>
